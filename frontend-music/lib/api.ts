@@ -1,6 +1,9 @@
 import type { CatalogItem, LibraryItem, SearchType } from "./types";
 
-const baseUrl = process.env.NEXT_PUBLIC_API_BASE_URL ?? "http://localhost:8080";
+const baseUrl =
+  process.env.NEXT_PUBLIC_API_URL ??
+  process.env.NEXT_PUBLIC_API_BASE_URL ??
+  "http://localhost:8080";
 
 type SearchApiResponse = {
   resultCount: number;
