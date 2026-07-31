@@ -1,7 +1,9 @@
 package com.music.backend.security;
 
 import com.music.backend.config.AppProperties;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpMethod;
@@ -39,7 +41,11 @@ public class SecurityConfig {
   @Bean
   CorsConfigurationSource corsConfigurationSource(AppProperties properties) {
     var config = new CorsConfiguration();
-    config.setAllowedOrigins(List.of(properties.cors().allowedOrigins().split(",")));
+    var allowedOrigins = Arrays.stream(properties.cors().allowedOrigins().split(","))
+        .map(String::trim)
+        .filter(origin -> !origin.isBlank())
+        .collect(Collectors.toList());
+    config.setAllowedOrigins(allowedOrigins);
     config.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
     config.setAllowedHeaders(List.of("*"));
     var source = new UrlBasedCorsConfigurationSource();
