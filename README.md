@@ -70,5 +70,5 @@ npm run dev
 
 ## Deployment
 
-- Frontend: Vercel or Netlify
-- Backend: Render, Railway, or AWS
+- Frontend: Vercel
+- Backend: Render & Aiven
