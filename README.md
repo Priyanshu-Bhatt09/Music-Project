@@ -2,6 +2,9 @@
 
 Full-stack music library app with Spring Boot, Next.js, Tailwind CSS, and an AI-ready backend.
 
+## Live Link
+https://music-project-taupe-one.vercel.app/
+
 ## Project Choice
 
 The app focuses on **albums**.
